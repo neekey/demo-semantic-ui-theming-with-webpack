@@ -1,0 +1,6 @@
+{
+  "home": "home",
+  "futureStateType": "asyncState",
+  "configFile": "route.json",
+  "targetName": "route"
+}

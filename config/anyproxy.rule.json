@@ -1,0 +1,7 @@
+{
+  "production": {
+    "hostname": "blog.neekey.me",
+    "port": "80",
+    "path": "/angular-webpack-spa/build/"
+  }
+}
