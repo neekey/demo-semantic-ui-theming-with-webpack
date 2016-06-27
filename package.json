@@ -6,7 +6,8 @@
   "scripts": {
     "build": "NODE_DEV=production node ./node_modules/webpack/bin/webpack --config config/webpack.config.js",
     "dev": "NODE_DEV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server --host 0.0.0.0 --devtool eval --config config/webpack.config.js --progress --colors --hot --inline --content-base build  --history-api-fallback",
-    "test": "./node_modules/.bin/mocha-webpack --opts ./test/mocha-webpack.opts --watch"
+    "test": "./node_modules/.bin/mocha-webpack --opts ./test/mocha-webpack.opts --watch",
+    "test:browser": "NODE_DEV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server --host 0.0.0.0 --devtool eval --config test/webpack.config.test.browser.js --progress --colors --hot --inline --content-base test  --history-api-fallback"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "json-loader": "^0.5.4",
     "lodash": "^4.13.1",
     "mocha": "^2.5.3",
+    "mocha-loader": "^0.7.1",
     "mocha-webpack": "^0.4.0",
     "mustache": "^2.2.1",
     "node-sass": "^3.7.0",

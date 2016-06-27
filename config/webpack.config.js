@@ -77,6 +77,10 @@ module.exports = {
                 loader: 'html',
             },
             {
+                test: /\.json$/,
+                loader: 'json',
+            },
+            {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=1024&name=[name]-[hash:8].[ext]!image-webpack',
             },
