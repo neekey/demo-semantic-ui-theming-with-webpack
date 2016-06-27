@@ -2,11 +2,12 @@ const path = require('path');
 const ENV = process.env.NODE_DEV;
 const webpack = require('webpack');
 //require('./route-builder');
-// const nodeModules = path.resolve(__dirname, '../node_modules');
+const nodeModules = path.resolve(__dirname, '../node_modules');
 
 const bourbon = require('bourbon');
 const bourbonNeat = require('bourbon-neat');
-// const pathToAngular = path.resolve(nodeModules, 'angular/angular.min.js');
+const pathToReact = path.resolve(nodeModules, 'react/dist/react.min.js');
+const pathToReactDOM = path.resolve(nodeModules, 'react-dom/dist/react-dom.min.js');
 // const pathToUIRouterExtra = path.resolve(nodeModules, 'ui-router-extras/release/modular/');
 
 const BUILD_DIR = path.resolve(__dirname, '../build');
@@ -15,9 +16,9 @@ const PAGE_ENTRIES = {
     app: path.resolve(__dirname, '../app/app.js'),
     vendor: [
         'babel-polyfill',
-        //'angular',
-        //'angular-resource',
-        //'angular-ui-router',
+        'react',
+        'react-dom',
+        'react-router',
     ],
 };
 
@@ -47,11 +48,17 @@ module.exports = {
     },
     resolve: {
         alias: {
-            // 'angular': pathToAngular
+            // todo: fix this
+             //'react': pathToReact,
+             //'react-dom': pathToReactDOM
             // 'ui-router-extras': pathToUIRouterExtra
         },
     },
     module: {
+        noParse: [
+            //pathToReact,
+            //pathToReactDOM
+        ],
         preLoaders: [
             // Javascript
              { test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules|build/ },
