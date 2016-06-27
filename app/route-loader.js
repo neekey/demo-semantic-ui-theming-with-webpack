@@ -3,7 +3,6 @@ import React from 'react';
 export default React.createClass({
 
     propTypes: {
-        location: React.PropTypes.object,
         route: React.PropTypes.object,
         params: React.PropTypes.object,
     },
@@ -16,12 +15,10 @@ export default React.createClass({
     },
 
     componentDidMount() {
-        console.log('componentDidMount', this.props.location, this.props.route);
         this.loadComponent(this.props.route.path);
     },
 
     componentWillReceiveProps(newProps) {
-        console.log('componentWillReceiveProps', newProps.location, newProps.route);
         this.loadComponent(newProps.route.path);
     },
 

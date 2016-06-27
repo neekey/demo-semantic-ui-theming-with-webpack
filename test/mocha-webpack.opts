@@ -1,0 +1,5 @@
+-R spec
+--colors
+--require test/setup.js
+--webpack-config ./test/webpack.config.test.js
+test/*.spec.js
