@@ -59,11 +59,11 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/, // Only .css files
-                loader: 'style!css', // Run both loaders
+                loader: 'style!css?modules&localIdentName=[path][name]---[local]---[hash:base64:5]', // Run both loaders
             },
             {
                 test: /\.scss$/,
-                loader: 'style!css!sass',
+                loader: 'style!css?modules&localIdentName=[path][name]---[local]---[hash:base64:5]!sass',
             },
             {
                 test: /\.html$/,

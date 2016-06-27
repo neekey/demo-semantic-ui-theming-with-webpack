@@ -17,6 +17,7 @@ render((
             <Route path="profile" component={RouteLoader}>
                 <Route path="/user/:userId" component={RouteLoader} />
             </Route>
+            <Route path="users/:id" component={RouteLoader} />
             <Route path="*" component={RouteLoader} />
         </Route>
     </Router>
