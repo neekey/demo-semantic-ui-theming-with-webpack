@@ -1,4 +1,6 @@
 import React from 'react';
+import Store from './store';
+import { connect } from 'react-redux';
 
 export default React.createClass({
 
@@ -22,11 +24,30 @@ export default React.createClass({
         this.loadComponent(newProps.route.path);
     },
 
-    setUpComponent(component) {
-        component = component.default || component;
+    setUpComponent(com) {
+        // add prefix to avoid naming conflict
+        const pageName = `page_${com.pageName}`;
+
+        // set up reducer
+        if (com.reducer) {
+            Store.addReducers({
+                [pageName]: com.reducer,
+            });
+        }
+
+        // transform to container component
+        const component = connect(
+            // every page component can only see their own state
+            com.mapStateToProps ? state => {
+                return com.mapStateToProps(state[pageName]);
+            } : null,
+            com.mapDispatchToProps
+        )(com.default || com);
+
         this.setState({
             componentLoaded: true,
             component,
+            pageName: com.pageName,
         });
     },
 
@@ -34,6 +55,7 @@ export default React.createClass({
         this.setState({
             componentLoaded: false,
             component: null,
+            pageName: null,
         });
 
         switch (matchedPath) {
