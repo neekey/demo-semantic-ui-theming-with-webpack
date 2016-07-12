@@ -2,4 +2,4 @@
 --colors
 --require test/setup.js
 --webpack-config ./test/webpack.config.test.js
-test/specs/*.spec.js
+test/specs/**/*.spec.js

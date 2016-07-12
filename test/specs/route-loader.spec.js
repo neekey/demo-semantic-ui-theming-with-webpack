@@ -37,7 +37,7 @@ describe( '<route-loader />', function(){
             // load "userItem"
             setTimeout(() => {
                 //expect(RouterLoader.prototype.componentWillReceiveProps.calledOnce).to.equal(true);
-                expect(wrapper.text()).to.equal(`users: ${userItemProps.params.id}`);
+                expect(wrapper.text()).to.equal(`users: ${userItemProps.params.id}, userCount: 0`);
                 done();
             }, 100);
         }, 100);

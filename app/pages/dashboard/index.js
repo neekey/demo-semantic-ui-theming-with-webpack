@@ -9,6 +9,12 @@ export default React.createClass({
         clickCount: React.PropTypes.number,
     },
 
+    getDefaultProps: function() {
+        return {
+            clickCount: 0
+        };
+    },
+
     getInitialState() {
         return {};
     },

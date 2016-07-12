@@ -1,12 +1,11 @@
 import React from 'react';
-import Store from './store';
-import { connect } from 'react-redux';
 
 export default React.createClass({
 
     propTypes: {
         route: React.PropTypes.object,
         params: React.PropTypes.object,
+        handleComponent: React.PropTypes.func,
     },
 
     getInitialState() {
@@ -25,29 +24,12 @@ export default React.createClass({
     },
 
     setUpComponent(com) {
-        // add prefix to avoid naming conflict
-        const pageName = `page_${com.pageName}`;
-
-        // set up reducer
-        if (com.reducer) {
-            Store.addReducers({
-                [pageName]: com.reducer,
-            });
-        }
-
-        // transform to container component
-        const component = connect(
-            // every page component can only see their own state
-            com.mapStateToProps ? state => {
-                return com.mapStateToProps(state[pageName]);
-            } : null,
-            com.mapDispatchToProps
-        )(com.default || com);
+        const component = this.props.handleComponent ?
+            this.props.handleComponent(com) : com.default || com;
 
         this.setState({
             componentLoaded: true,
             component,
-            pageName: com.pageName,
         });
     },
 

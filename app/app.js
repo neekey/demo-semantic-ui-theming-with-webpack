@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
-import RouteLoader from './route-loader';
+import RouteLoaderContainer from './route-loader-container';
 import { Provider } from 'react-redux';
 import Main from './main';
 import Store from './store';
@@ -21,13 +21,13 @@ render((
     <Provider store={Store.getStore()}>
         <Router history={history}>
             <Route path="/" component={Main}>
-                <IndexRoute component={RouteLoader} />
-                <Route path="dashboard" component={RouteLoader} />
-                <Route path="profile" component={RouteLoader}>
-                    <Route path="/user/:userId" component={RouteLoader} />
+                <IndexRoute component={RouteLoaderContainer} />
+                <Route path="dashboard" component={RouteLoaderContainer} />
+                <Route path="profile" component={RouteLoaderContainer}>
+                    <Route path="/user/:userId" component={RouteLoaderContainer} />
                 </Route>
-                <Route path="users/:id" component={RouteLoader} />
-                <Route path="*" component={RouteLoader} />
+                <Route path="users/:id" component={RouteLoaderContainer} />
+                <Route path="*" component={RouteLoaderContainer} />
             </Route>
         </Router>
     </Provider>
