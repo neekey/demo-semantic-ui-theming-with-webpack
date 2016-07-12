@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_DEV=production node ./node_modules/webpack/bin/webpack --config config/webpack.config.js",
-    "dev": "NODE_DEV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server --host 0.0.0.0 --devtool eval --config config/webpack.config.js --progress --colors --hot --inline --content-base build  --history-api-fallback",
+    "build": "NODE_ENV=production node ./node_modules/webpack/bin/webpack --config config/webpack.config.js",
+    "dev": "NODE_ENV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server --host 0.0.0.0 --devtool eval --config config/webpack.config.js --progress --colors --hot --inline --content-base build  --history-api-fallback",
     "test": "./node_modules/.bin/mocha-webpack --opts ./test/mocha-webpack.opts --watch",
-    "test:browser": "NODE_DEV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server --host 0.0.0.0 --devtool eval --config test/webpack.config.test.browser.js --progress --colors --hot --inline --content-base test  --history-api-fallback"
+    "test:browser": "NODE_ENV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server --host 0.0.0.0 --devtool eval --config test/webpack.config.test.browser.js --progress --colors --hot --inline --content-base test  --history-api-fallback"
   },
   "repository": {
     "type": "git",

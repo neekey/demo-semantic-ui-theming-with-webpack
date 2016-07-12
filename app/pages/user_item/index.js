@@ -11,9 +11,9 @@ export default React.createClass({
         userCount: React.PropTypes.number,
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
-            userCount: 0
+            userCount: 0,
         };
     },
 

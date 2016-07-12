@@ -1,14 +1,9 @@
 const path = require('path');
-const ENV = process.env.NODE_DEV;
-const webpack = require('webpack');
-//require('./route-builder');
-const nodeModules = path.resolve(__dirname, '../node_modules');
+const ENV = process.env.NODE_ENV;
+const webpack = require('webpack') || 'development';
 
 const bourbon = require('bourbon');
 const bourbonNeat = require('bourbon-neat');
-const pathToReact = path.resolve(nodeModules, 'react/dist/react.min.js');
-const pathToReactDOM = path.resolve(nodeModules, 'react-dom/dist/react-dom.min.js');
-// const pathToUIRouterExtra = path.resolve(nodeModules, 'ui-router-extras/release/modular/');
 
 const BUILD_DIR = path.resolve(__dirname, '../build');
 const PLUGINS = [];
@@ -24,10 +19,12 @@ const PAGE_ENTRIES = {
 
 if (ENV === 'development') {
     PAGE_ENTRIES['webpack-dev-server'] = 'webpack/hot/dev-server';
-    //PAGE_ENTRIES['test-launcher'] = path.resolve(__dirname, '../app/test-launcher.js');
 }
 
 PLUGINS.push(new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'));
+PLUGINS.push(new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(ENV)
+}));
 
 if (ENV === 'production') {
     PLUGINS.push(new webpack.optimize.UglifyJsPlugin({
@@ -47,18 +44,10 @@ module.exports = {
         filename: '[name].js',
     },
     resolve: {
-        alias: {
-            // todo: fix this
-             //'react': pathToReact,
-             //'react-dom': pathToReactDOM
-            // 'ui-router-extras': pathToUIRouterExtra
-        },
+        alias: {},
     },
     module: {
-        noParse: [
-            //pathToReact,
-            //pathToReactDOM
-        ],
+        noParse: [],
         preLoaders: [
             // Javascript
              { test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules|build/ },

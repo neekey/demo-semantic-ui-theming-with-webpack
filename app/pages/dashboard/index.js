@@ -9,9 +9,9 @@ export default React.createClass({
         clickCount: React.PropTypes.number,
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
-            clickCount: 0
+            clickCount: 0,
         };
     },
 
