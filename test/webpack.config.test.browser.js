@@ -1,5 +1,5 @@
 var path = require( 'path' );
-var baseConfig = require( '../config/webpack.config.js');
+var baseConfig = require( '../webpack.config.js');
 var testEntryPath = path.resolve( __dirname, './browser-test-entry.js' );
 const nodeModules = path.resolve(__dirname, '../node_modules');
 

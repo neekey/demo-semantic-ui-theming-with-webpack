@@ -1,15 +1,16 @@
 import { createStore, combineReducers } from 'redux';
-let Reducers = require('./reducers');
+let Reducers = {};
 
-const Store = createStore(() => {});
+const Store = createStore(() => {
+});
 
 export default {
-    getStore() {
-        return Store;
-    },
+  getStore() {
+    return Store;
+  },
 
-    addReducers(reducers) {
-        Reducers = Object.assign(Reducers, reducers);
-        Store.replaceReducer(combineReducers(Reducers));
-    },
+  addReducers(reducers) {
+    Reducers = Object.assign(Reducers, reducers);
+    Store.replaceReducer(combineReducers(Reducers));
+  },
 };

@@ -1,13 +1,21 @@
 {
-    "extends": "airbnb",
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "indent": ["error", 4],
-        "no-param-reassign": 0,
-        "arrow-body-style": ["error", "always"],
-        "react/jsx-indent": [2, 4],
-        "react/prefer-es6-class": [2,"never"]
+  "extends": "airbnb",
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "react/jsx-closing-bracket-location": [1, "after-props"],
+    "new-cap": ["error", {"capIsNew": false}],
+    "no-unused-expressions": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": { "config": "./webpack.config.js" }
     }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  }
 }

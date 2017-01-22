@@ -1,5 +1,0 @@
-/**
- * base reducers
- */
-
-export default {};

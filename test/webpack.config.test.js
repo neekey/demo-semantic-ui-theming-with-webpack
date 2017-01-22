@@ -1,4 +1,4 @@
-var baseConfig = require( '../config/webpack.config.js');
+var baseConfig = require( '../webpack.config.js');
 var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
