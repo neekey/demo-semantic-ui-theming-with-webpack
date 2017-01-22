@@ -32,6 +32,7 @@
     "css-loader": "^0.23.1",
     "deepcopy": "^0.6.3",
     "ejs": "^2.5.5",
+    "ejs-loader": "^0.3.0",
     "enzyme": "^2.3.0",
     "eslint": "^2.10.2",
     "eslint-config-airbnb": "^9.0.1",
@@ -47,7 +48,6 @@
     "jquery": "^2.2.4",
     "jsdom": "^9.3.0",
     "json-loader": "^0.5.4",
-    "ejs-loader": "^0.3.0",
     "lodash": "^4.13.1",
     "mocha": "^2.5.3",
     "mocha-loader": "^0.7.1",
@@ -70,6 +70,8 @@
     "webpack-node-externals": "^1.2.0"
   },
   "dependencies": {
-    "history": "^3.0.0"
+    "history": "^3.0.0",
+    "redux-responsive": "^4.1.1",
+    "redux-logger": "^2.7.4"
   }
 }

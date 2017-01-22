@@ -1,8 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { compose, applyMiddleware } from 'redux';
 import { Router, useRouterHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { Provider } from 'react-redux';
+import {
+  createResponsiveStateReducer, createResponsiveStoreEnhancer,
+} from 'redux-responsive';
+import reduxLoggerMiddleware from 'redux-logger';
 import createHistory from 'history/lib/createBrowserHistory';
 import Main from './main';
 import Store from './store';
@@ -14,7 +19,22 @@ let history = useRouterHistory(createHistory)({
 
 Store.addReducers({
   routing: routerReducer,
+  browser: createResponsiveStateReducer({
+    mobile: 840,
+    tablet: 960,
+    desktop: 1280,
+  }),
 });
+
+// init store
+Store.init(compose(
+  createResponsiveStoreEnhancer({
+    performanceMode: true,
+  }),
+  applyMiddleware(
+    reduxLoggerMiddleware()
+  )
+));
 
 // Create an enhanced history that syncs navigation events with the store
 history = syncHistoryWithStore(history, Store.getStore());
