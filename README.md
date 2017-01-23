@@ -1,18 +1,10 @@
-# react-webpack-spa
-A demo for building a SPA using React and build with webpack.
+# demo-semantic-ui-theming-with-webpack
 
-[Demo](http://neekey.github.io/react-webpack-spa/build/)
+This is a demo that demonstrate how to do theming for semantic-ui with webpack.
 
-- [CSS Module](https://github.com/webpack/css-loader#local-scope)
-- [mocha-webpack](https://github.com/zinserjan/mocha-webpack)
+You can read this [blog](http://neekey.net/2016/12/09/integrate-react-webpack-with-semantic-ui-and-theming/) to learn more about the theming for semantic-ui 
 
 ### Usage
-
-#### build
-
-```
-npm run build
-```
 
 #### development.
 
@@ -20,10 +12,10 @@ npm run build
 npm run dev
 ```
 
-#### test
+#### build
 
 ```
-npm run test
+npm run build
 ```
 
 
